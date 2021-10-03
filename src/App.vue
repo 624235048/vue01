@@ -40,6 +40,15 @@
      <b>Id :</b> {{emp.id}},<br/>
      <b>Name :</b> {{emp.name}},<br/>
      <b>Salary :</b> {{emp.Salary}},<br/><br/><br/>
+     <b>Name</b>:<span v-bind:class="(emp.Salary>90000) ? 'high' : (emp.Salary>=30000) ? 'medium' : 'low' ">{{emp.name}}</span>,<br/> 
+     <b>Salary</b>:{{emp.Salary}},
+     <span  v-if="emp.Salary>90000">***</span>
+     <span  v-else-if="emp.Salary>=30000">**</span>
+     <span  v-else>*</span>
+
+
+     <br/><br/><br/> 
+
    </div>
    <hr/>
   
@@ -97,5 +106,14 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.high{
+  color:rgba(69, 69, 158, 0.411);
+}
+.medium{
+  color:rgba(17, 17, 124, 0.541);
+}
+.low{
+  color: rgba(36, 87, 207, 0.691);
 }
 </style>
